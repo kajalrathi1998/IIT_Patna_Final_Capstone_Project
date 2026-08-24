@@ -1,0 +1,9 @@
+openai
+python-dotenv
+toml
+pydantic
+pandas
+python-docx
+pymupdf
+tiktoken
+langgraph
