@@ -6,4 +6,3 @@ pandas
 python-docx
 pymupdf
 tiktoken
-langgraph

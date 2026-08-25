@@ -1,0 +1,15 @@
+- create project structure using template.py
+- add requirements to requirements.txt
+- add OPENAI_API_KEY to .env
+- add configs to config.toml
+- add method to read file from given in utils
+- write code for config.py
+- add method to save file on given path in utils
+- write code for logger.py
+- write code for document ingestion
+- write code for llm manager
+- write prompts for prompt documents
+- write code in document processor extract data from file
+- write code for genrating email content and sending email
+- write code for code for summarizing document processing
+- write code to save final document
