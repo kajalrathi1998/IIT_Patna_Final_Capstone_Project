@@ -1,2 +1,5 @@
 .venv
 .env
+src/__pycache__/
+src/schemas/__pycache__/
+.claude
