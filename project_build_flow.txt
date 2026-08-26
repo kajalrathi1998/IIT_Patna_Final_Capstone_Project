@@ -2,7 +2,6 @@
 - add requirements to requirements.txt
 - add OPENAI_API_KEY to .env
 - add configs to config.toml
-- add method to read file from given in utils
 - write code for config.py
 - add method to save file on given path in utils
 - write code for logger.py

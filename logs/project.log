@@ -1,0 +1,66 @@
+2026-08-25 22:43:28,657 | INFO | Testing log file.
+2026-08-25 22:44:08,607 | ERROR | This is error log.
+2026-08-26 21:52:02,433 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 21:52:02,433 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 21:52:02,433 | INFO | Started text completion request.
+2026-08-26 21:52:07,731 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 21:52:08,322 | INFO | Text completion request completed.
+2026-08-26 21:52:08,322 | INFO | Model=gpt-4.1 | Input Tokens=368 | Output Tokens=163 | Total cost=0.00255 USD | 
+2026-08-26 21:52:28,660 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 21:52:28,660 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 21:52:28,660 | INFO | Started text completion request.
+2026-08-26 21:52:32,122 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 21:52:32,465 | INFO | Text completion request completed.
+2026-08-26 21:52:32,465 | INFO | Model=gpt-4.1 | Input Tokens=370 | Output Tokens=122 | Total cost=0.002145 USD | 
+2026-08-26 22:31:00,560 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:31:00,564 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:31:00,564 | INFO | Started text completion request.
+2026-08-26 22:31:04,423 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:31:04,698 | INFO | Text completion request completed.
+2026-08-26 22:31:04,698 | INFO | Model=gpt-4.1 | Input Tokens=353 | Output Tokens=133 | Total cost=0.002213 USD | 
+2026-08-26 22:34:42,692 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:34:42,695 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:34:42,695 | INFO | Started text completion request.
+2026-08-26 22:34:46,199 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:34:46,568 | INFO | Text completion request completed.
+2026-08-26 22:34:46,570 | INFO | Model=gpt-4.1 | Input Tokens=355 | Output Tokens=181 | Total cost=0.002698 USD | 
+2026-08-26 22:36:07,871 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:36:07,877 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:36:07,877 | INFO | Started text completion request.
+2026-08-26 22:36:11,884 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:36:12,243 | INFO | Text completion request completed.
+2026-08-26 22:36:12,250 | INFO | Model=gpt-4.1 | Input Tokens=355 | Output Tokens=197 | Total cost=0.002857 USD | 
+2026-08-26 22:37:54,462 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:37:54,466 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:37:54,466 | INFO | Started text completion request.
+2026-08-26 22:37:58,896 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:37:59,231 | INFO | Text completion request completed.
+2026-08-26 22:37:59,231 | INFO | Model=gpt-4.1 | Input Tokens=356 | Output Tokens=179 | Total cost=0.00268 USD | 
+2026-08-26 22:48:23,928 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:48:23,932 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:48:23,933 | INFO | Started text completion request.
+2026-08-26 22:48:26,984 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:48:27,313 | INFO | Text completion request completed.
+2026-08-26 22:48:27,313 | INFO | Model=gpt-4.1 | Input Tokens=353 | Output Tokens=167 | Total cost=0.002553 USD | 
+2026-08-26 22:49:41,855 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:49:41,856 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:49:41,857 | INFO | Started text completion request.
+2026-08-26 22:49:47,406 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:49:47,692 | INFO | Text completion request completed.
+2026-08-26 22:49:47,692 | INFO | Model=gpt-4.1 | Input Tokens=357 | Output Tokens=178 | Total cost=0.002672 USD | 
+2026-08-26 22:56:50,370 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:56:50,423 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:56:50,424 | INFO | Started text completion request.
+2026-08-26 22:56:54,398 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:56:55,852 | INFO | Text completion request completed.
+2026-08-26 22:56:55,871 | INFO | Model=gpt-4.1 | Input Tokens=477 | Output Tokens=182 | Total cost=0.003012 USD | 
+2026-08-26 22:58:12,909 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 22:58:12,913 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 22:58:12,913 | INFO | Started text completion request.
+2026-08-26 22:58:16,192 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-08-26 22:58:16,546 | INFO | Text completion request completed.
+2026-08-26 22:58:16,546 | INFO | Model=gpt-4.1 | Input Tokens=477 | Output Tokens=182 | Total cost=0.003012 USD | 
+2026-08-26 23:04:23,752 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-08-26 23:04:23,757 | INFO | Processing document for parsing response D:\LearnPython\work-branch\data\input\complaint_001.txt
+2026-08-26 23:04:23,759 | INFO | Started text completion request.
+2026-08-26 23:04:24,393 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 400 Bad Request"

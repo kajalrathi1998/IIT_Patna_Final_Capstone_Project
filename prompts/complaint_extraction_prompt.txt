@@ -1,0 +1,2 @@
+Extract the requested complaint information from the document.
+Return only the structured response.

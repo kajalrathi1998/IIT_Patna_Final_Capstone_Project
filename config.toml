@@ -1,0 +1,65 @@
+# =====================================================
+# LLM Configuration
+# =====================================================
+
+[models]
+document_model = "gpt-4.1"
+temperature = 0.0
+max_tokens = 2048
+
+# =====================================================
+# Retry Configuration
+# =====================================================
+
+# [retry]
+# max_retries = 3
+# base_delay = 2
+# exponential_backoff = true
+
+# # =====================================================
+# # Rate Limiting
+# # =====================================================
+
+# [rate_limit]
+# requests_per_minute = 10
+# tokens_per_minute = 30000
+
+# =====================================================
+# Token Limits
+# =====================================================
+
+[token_limit]
+max_input_tokens = 120000
+max_output_tokens = 2048
+
+# =====================================================
+# Cost Tracking
+# =====================================================
+
+[cost]
+enabled = true
+
+# Input Cost (per 1 Million Tokens)
+input_cost = 2.50
+
+# Output Cost (per 1 Million Tokens)
+output_cost = 10.00
+
+currency = "USD"
+
+# =====================================================
+# Logging
+# =====================================================
+
+[logging]
+log_level = "INFO"
+log_file = "logs/project.log"
+
+# =====================================================
+# Paths
+# =====================================================
+
+[paths]
+document_input = "data/input"
+document_processed = "data/processed"
+document_output = "data/output"
