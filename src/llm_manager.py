@@ -15,9 +15,13 @@ class LLMManager:
 
     def __init__(self):
         self.client = OpenAI(api_key=config.OPENAI_API_KEY)
-        self.SYSTEM_PROMPT = "You are a file parser expert. " \
+        self.system_prompt = "You are a file parser expert. " \
             "You identify the fields that are required and returns it " \
             "in expected response format."
+        self.email_system_prompt = """You are a professional customer service email writer.
+                                    Based on the provided complaint details, generate:
+                                        1. A clear, concise email subject.
+                                        2. A professional and empathetic email body."""
 
     # text completion
     def parse_document_with_llm(self, document_prompt:str, file_path:Path, response_schema=None):
@@ -50,7 +54,7 @@ class LLMManager:
         messages = [
             {
                 "role": "system",
-                "content": self.SYSTEM_PROMPT
+                "content": self.system_prompt
             },
             {
                 "role": "user",
@@ -61,6 +65,76 @@ class LLMManager:
         logger.info("Started text completion request.")
 
         # structured output or normal output
+
+        if response_schema:
+
+            response = self.client.responses.parse(
+                model=config.MODELS["document_model"],
+                input=messages,
+                text_format=response_schema,
+            )
+
+            content = response.output_parsed
+
+        else:
+
+            response = self.client.responses.create(
+                model=config.MODELS["document_model"],
+                input=messages,
+                temperature=config.MODELS["temperature"],
+                max_output_tokens=config.MODELS["max_tokens"],
+            )
+
+            content = response.output_text
+
+        logger.info("Text completion request completed.")
+
+        usage = response.usage
+
+        cost = cost_tracker.calculate_cost(
+            input_tokens=usage.input_tokens,
+            output_tokens=usage.output_tokens
+        )
+
+        logger.info(
+            f"Model={config.MODELS['document_model']} | "
+            f"Input Tokens={cost['input_tokens']} | "
+            f"Output Tokens={cost['output_tokens']} | "
+            f"Total cost={cost['current_total_cost']} {cost['currency']} | "
+        )
+
+        return {
+            "success": True,
+            "content": content,
+            "usage": cost,
+            "model": config.MODELS["document_model"],
+        }
+
+    def chat_completion(
+        self,
+        user_email_prompt: str,
+        response_schema=None,
+    ):
+        """
+        Performs a standard text completion.
+        """
+
+        messages = [
+            {
+                "role": "system",
+                "content": self.email_system_prompt,
+            },
+            {
+                "role": "user",
+                "content": user_email_prompt,
+            },
+        ]
+
+        logger.info("Starting text completion request.")
+
+        # --------------------------------------------------
+        # Structured Output
+        # --------------------------------------------------
 
         if response_schema:
 

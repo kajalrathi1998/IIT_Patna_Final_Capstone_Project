@@ -1,0 +1,5 @@
+Mention the complaint, resolution/current status, and next steps if applicable. 
+If the complaint is resolved, clearly state that no further follow-up is required. 
+Do not invent any information.
+
+customer complaint: {customer_complaint}
