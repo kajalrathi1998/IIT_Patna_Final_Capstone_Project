@@ -141,3 +141,13 @@
 2026-09-02 20:38:27,716 | INFO | Text completion request completed.
 2026-09-02 20:38:27,716 | INFO | Model=gpt-4.1 | Input Tokens=342 | Output Tokens=207 | Total cost=0.002925 USD | 
 2026-09-02 20:38:31,148 | INFO | Email sent successfully to rahul.mehta@yopmail.com
+2026-09-02 22:07:02,165 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 22:07:02,181 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-02 22:07:02,181 | INFO | Started text completion request.
+2026-09-02 22:07:05,389 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 22:07:05,794 | INFO | Text completion request completed.
+2026-09-02 22:07:05,797 | INFO | Model=gpt-4.1 | Input Tokens=471 | Output Tokens=184 | Total cost=0.003018 USD | 
+2026-09-02 22:07:05,797 | INFO | Starting text completion request.
+2026-09-02 22:07:08,918 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 22:07:08,969 | INFO | Text completion request completed.
+2026-09-02 22:07:08,969 | INFO | Model=gpt-4.1 | Input Tokens=415 | Output Tokens=152 | Total cost=0.002557 USD | 
