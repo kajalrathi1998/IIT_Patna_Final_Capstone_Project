@@ -1,7 +1,7 @@
 CUSTOMER COMPLAINT CASE
 
 Customer Name: Ananya Sharma
-Email: ananya.sharma@example.com
+Email: ananya.sharma@yopmail.com
 Phone: +91-9876543210
 
 Complaint Category: Billing Issue

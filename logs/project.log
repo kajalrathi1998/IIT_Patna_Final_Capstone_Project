@@ -88,3 +88,56 @@
 2026-08-27 00:10:29,106 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
 2026-08-27 00:10:29,149 | INFO | Text completion request completed.
 2026-08-27 00:10:29,149 | INFO | Model=gpt-4.1 | Input Tokens=365 | Output Tokens=175 | Total cost=0.002662 USD | 
+2026-09-02 19:50:50,708 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 19:50:50,805 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-02 19:50:50,806 | INFO | Started text completion request.
+2026-09-02 19:50:55,901 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 19:50:56,661 | INFO | Text completion request completed.
+2026-09-02 19:50:56,663 | INFO | Model=gpt-4.1 | Input Tokens=469 | Output Tokens=182 | Total cost=0.002992 USD | 
+2026-09-02 19:50:56,663 | INFO | Starting text completion request.
+2026-09-02 19:50:59,025 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 19:50:59,074 | INFO | Text completion request completed.
+2026-09-02 19:50:59,074 | INFO | Model=gpt-4.1 | Input Tokens=365 | Output Tokens=197 | Total cost=0.002882 USD | 
+2026-09-02 20:19:27,887 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 20:19:27,987 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-02 20:19:27,988 | INFO | Started text completion request.
+2026-09-02 20:19:30,856 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:19:31,377 | INFO | Text completion request completed.
+2026-09-02 20:19:31,378 | INFO | Model=gpt-4.1 | Input Tokens=471 | Output Tokens=184 | Total cost=0.003018 USD | 
+2026-09-02 20:19:31,378 | INFO | Starting text completion request.
+2026-09-02 20:19:33,621 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:19:33,663 | INFO | Text completion request completed.
+2026-09-02 20:19:33,663 | INFO | Model=gpt-4.1 | Input Tokens=367 | Output Tokens=207 | Total cost=0.002987 USD | 
+2026-09-02 20:24:52,357 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 20:24:52,358 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-02 20:24:52,359 | INFO | Started text completion request.
+2026-09-02 20:24:55,019 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:24:55,325 | INFO | Text completion request completed.
+2026-09-02 20:24:55,325 | INFO | Model=gpt-4.1 | Input Tokens=471 | Output Tokens=184 | Total cost=0.003018 USD | 
+2026-09-02 20:24:55,325 | INFO | Starting text completion request.
+2026-09-02 20:24:57,691 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:24:57,734 | INFO | Text completion request completed.
+2026-09-02 20:24:57,734 | INFO | Model=gpt-4.1 | Input Tokens=367 | Output Tokens=208 | Total cost=0.002997 USD | 
+2026-09-02 20:24:57,734 | ERROR | EMAIL_ADDRESS environment variable is missing.
+2026-09-02 20:27:55,447 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 20:27:55,551 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-02 20:27:55,551 | INFO | Started text completion request.
+2026-09-02 20:28:02,046 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:28:02,844 | INFO | Text completion request completed.
+2026-09-02 20:28:02,845 | INFO | Model=gpt-4.1 | Input Tokens=471 | Output Tokens=184 | Total cost=0.003018 USD | 
+2026-09-02 20:28:02,845 | INFO | Starting text completion request.
+2026-09-02 20:28:05,445 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:28:05,581 | INFO | Text completion request completed.
+2026-09-02 20:28:05,581 | INFO | Model=gpt-4.1 | Input Tokens=367 | Output Tokens=200 | Total cost=0.002917 USD | 
+2026-09-02 20:28:09,693 | INFO | Email sent successfully to ananya.sharma@yopmail.com
+2026-09-02 20:38:18,954 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-02 20:38:19,046 | INFO | Processing document for parsing response E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_002.pdf
+2026-09-02 20:38:19,046 | INFO | Started text completion request.
+2026-09-02 20:38:24,035 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:38:24,327 | INFO | Text completion request completed.
+2026-09-02 20:38:24,328 | INFO | Model=gpt-4.1 | Input Tokens=459 | Output Tokens=187 | Total cost=0.003018 USD | 
+2026-09-02 20:38:24,328 | INFO | Starting text completion request.
+2026-09-02 20:38:27,673 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-02 20:38:27,716 | INFO | Text completion request completed.
+2026-09-02 20:38:27,716 | INFO | Model=gpt-4.1 | Input Tokens=342 | Output Tokens=207 | Total cost=0.002925 USD | 
+2026-09-02 20:38:31,148 | INFO | Email sent successfully to rahul.mehta@yopmail.com

@@ -23,6 +23,9 @@ class Config:
         if not self.OPENAI_API_KEY:
             raise ValueError("OPENAI_API_KEY not configured in .env")
 
+        self.sender_email = os.getenv("sender_email")
+        self.app_password = os.getenv("app_password")
+
         self.MODELS = self.config["models"]
 
         #self.RETRY = self.config["retry"]
