@@ -5,7 +5,7 @@ import pandas as pd
 # File Discovery
 # ============================================================
 
-def discover_files(input_dir: Path, patterns: List = ["*.pdf", "*.txt","*.docs"]) -> pd.DataFrame:
+def discover_files(input_dir: Path, patterns: List = ["*.pdf", "*.txt","*.docx"]) -> pd.DataFrame:
     """
     Discovers files inside a provided path and returns
     a standardized DataFrame.
@@ -39,4 +39,35 @@ def discover_files(input_dir: Path, patterns: List = ["*.pdf", "*.txt","*.docs"]
             ],
             "status": "Pending",
         }
+    )
+
+def load_prompt(prompt_path: Path) -> str:
+    """
+    Loads a prompt from a text file.
+
+    Args:
+        prompt_path (Path): Prompt file path.
+
+    Returns:
+        str
+    """
+    with open(prompt_path, "r", encoding="utf-8") as file:
+        return file.read()
+
+def save_dataframe(
+    dataframe: pd.DataFrame,
+    output_path: Path,
+):
+    """
+    Saves a DataFrame to CSV.
+    """
+
+    output_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    dataframe.to_csv(
+        output_path,
+        index=False,
     )

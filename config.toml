@@ -59,7 +59,20 @@ log_file = "logs/project.log"
 # Paths
 # =====================================================
 
+# Paths
 [paths]
 document_input = "data/input"
-document_processed = "data/processed"
-document_output = "data/output"
+document_input_processed = "data/input/processed"
+structured_data_dir = "data/output/structured_data"
+email_data_dir = "data/output/customer_emails"
+summary_data_dir = "data/output/case_summaries"
+final_output = "data/output"
+
+# Email Configuration
+[email]
+enabled = true
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+use_tls = true
+from_email = "hrm.rohit17@gmail.com"
+from_name = "Service Team"

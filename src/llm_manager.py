@@ -15,31 +15,19 @@ class LLMManager:
 
     def __init__(self):
         self.client = OpenAI(api_key=config.OPENAI_API_KEY)
-        self.system_prompt = "You are a file parser expert. " \
-            "You identify the fields that are required and returns it " \
-            "in expected response format."
-        self.email_system_prompt = """You are a professional customer service email writer.
-                                    Based on the provided complaint details, generate:
-                                        1. A clear, concise email subject.
-                                        2. A professional and empathetic email body."""
-        self.case_summary_system_prompt = """You are a professional case summary writer.
-                                             Based on the provided complaint details, generate:
-                                             1. A clear case summary report.
-                                             2. Provide all expected details.
-                                             3. Maintain professional and empathetic tone."""
 
     # text completion
-    def parse_document_with_llm(self, document_prompt:str, file_path:Path, response_schema=None):
+    def parse_document_with_llm(self, document_prompt:str, system_prompt:str, file_path:Path, response_schema=None):
         """
-        Performs standard chat completion.
+        Performs document details extraction
         """
+        # Ensure file_path is a Path object (handles both str and Path inputs)
+        file_path = Path(file_path)
 
         uploaded_file = self.client.files.create(
             file=file_path,
             purpose="user_data"
         )
-
-        print(uploaded_file)
 
         user_prompt = [
             {
@@ -52,14 +40,12 @@ class LLMManager:
             }
         ]
 
-        logger.info(f"Processing document for parsing response {file_path}")
+        logger.info(f"Processing document {file_path}")
 
-        # The responses API expects input as an array of messages
-        # First message is system, then the user prompt with file + text
         messages = [
             {
                 "role": "system",
-                "content": self.system_prompt
+                "content": system_prompt
             },
             {
                 "role": "user",
@@ -67,191 +53,90 @@ class LLMManager:
             }
         ]
 
-        logger.info("Started text completion request.")
+        logger.info("Started document parsing request.")
 
         # structured output or normal output
-
-        if response_schema:
-
-            response = self.client.responses.parse(
-                model=config.MODELS["document_model"],
-                input=messages,
-                text_format=response_schema,
-            )
-
-            content = response.output_parsed
-
-        else:
-
-            response = self.client.responses.create(
-                model=config.MODELS["document_model"],
-                input=messages,
-                temperature=config.MODELS["temperature"],
-                max_output_tokens=config.MODELS["max_tokens"],
-            )
-
-            content = response.output_text
-
-        logger.info("Text completion request completed.")
-
-        usage = response.usage
-
-        cost = cost_tracker.calculate_cost(
-            input_tokens=usage.input_tokens,
-            output_tokens=usage.output_tokens
-        )
-
-        logger.info(
-            f"Model={config.MODELS['document_model']} | "
-            f"Input Tokens={cost['input_tokens']} | "
-            f"Output Tokens={cost['output_tokens']} | "
-            f"Total cost={cost['current_total_cost']} {cost['currency']} | "
-        )
-
-        return {
-            "success": True,
-            "content": content,
-            "usage": cost,
-            "model": config.MODELS["document_model"],
-        }
+        return self.get_structured_output(response_schema, messages)
 
     def chat_completion(
         self,
-        user_email_prompt: str,
+        user_prompt,
+        system_prompt: str,
         response_schema=None,
     ):
         """
-        Performs a standard text completion.
+        Performs a standard text completion with structured output.
         """
 
         messages = [
             {
                 "role": "system",
-                "content": self.email_system_prompt,
+                "content": system_prompt,
             },
             {
                 "role": "user",
-                "content": user_email_prompt,
+                "content": user_prompt,
             },
         ]
 
-        logger.info("Starting text completion request.")
+        logger.info("Starting chat completion request.")
 
-        # --------------------------------------------------
-        # Structured Output
-        # --------------------------------------------------
+        # structured output or normal output
+        return self.get_structured_output(response_schema, messages)
 
-        if response_schema:
+    def get_structured_output(self, response_schema, messages):
 
-            response = self.client.responses.parse(
-                model=config.MODELS["document_model"],
-                input=messages,
-                text_format=response_schema,
+        try:
+            if response_schema:
+                    
+                response = self.client.responses.parse(
+                    model=config.MODELS["document_model"],
+                    input=messages,
+                    text_format=response_schema,
+                )
+
+                content = response.output_parsed
+
+            else:
+
+                response = self.client.responses.create(
+                    model=config.MODELS["document_model"],
+                    input=messages,
+                    temperature=config.MODELS["temperature"],
+                    max_output_tokens=config.MODELS["max_tokens"],
+                )
+
+                content = response.output_text
+
+            logger.info("Text completion request completed.")
+
+            usage = response.usage
+
+            cost = cost_tracker.calculate_cost(
+                input_tokens=usage.input_tokens,
+                output_tokens=usage.output_tokens
             )
 
-            content = response.output_parsed
-
-        else:
-
-            response = self.client.responses.create(
-                model=config.MODELS["document_model"],
-                input=messages,
-                temperature=config.MODELS["temperature"],
-                max_output_tokens=config.MODELS["max_tokens"],
+            logger.info(
+                f"Model={config.MODELS['document_model']} | "
+                f"Input Tokens={cost['input_tokens']} | "
+                f"Output Tokens={cost['output_tokens']} | "
+                f"Total cost={cost['current_total_cost']} {cost['currency']} | "
             )
 
-            content = response.output_text
+            return {
+                "success": True,
+                "content": content,
+                "usage": cost,
+                "model": config.MODELS["document_model"],
+            }
+        except Exception as e:
+            logger.error(f"Failed with error : {e}")
+            return {
+                "success": False,
+                "content": f"Failed {e}" ,
+                "usage": None,
+                "model": config.MODELS["document_model"],
+            }
 
-        logger.info("Text completion request completed.")
-
-        usage = response.usage
-
-        cost = cost_tracker.calculate_cost(
-            input_tokens=usage.input_tokens,
-            output_tokens=usage.output_tokens
-        )
-
-        logger.info(
-            f"Model={config.MODELS['document_model']} | "
-            f"Input Tokens={cost['input_tokens']} | "
-            f"Output Tokens={cost['output_tokens']} | "
-            f"Total cost={cost['current_total_cost']} {cost['currency']} | "
-        )
-
-        return {
-            "success": True,
-            "content": content,
-            "usage": cost,
-            "model": config.MODELS["document_model"],
-        }
-
-    def case_summary_report(
-        self,
-        case_summary_prompt: str,
-        response_schema=None,
-    ):
-        """
-        Performs a standard text completion.
-        """
-
-        messages = [
-            {
-                "role": "system",
-                "content": self.case_summary_system_prompt,
-            },
-            {
-                "role": "user",
-                "content": case_summary_prompt,
-            },
-        ]
-
-        logger.info("Starting text completion request.")
-
-        # --------------------------------------------------
-        # Structured Output
-        # --------------------------------------------------
-
-        if response_schema:
-
-            response = self.client.responses.parse(
-                model=config.MODELS["document_model"],
-                input=messages,
-                text_format=response_schema,
-            )
-
-            content = response.output_parsed
-
-        else:
-
-            response = self.client.responses.create(
-                model=config.MODELS["document_model"],
-                input=messages,
-                temperature=config.MODELS["temperature"],
-                max_output_tokens=config.MODELS["max_tokens"],
-            )
-
-            content = response.output_text
-
-        logger.info("Text completion request completed.")
-
-        usage = response.usage
-
-        cost = cost_tracker.calculate_cost(
-            input_tokens=usage.input_tokens,
-            output_tokens=usage.output_tokens
-        )
-
-        logger.info(
-            f"Model={config.MODELS['document_model']} | "
-            f"Input Tokens={cost['input_tokens']} | "
-            f"Output Tokens={cost['output_tokens']} | "
-            f"Total cost={cost['current_total_cost']} {cost['currency']} | "
-        )
-
-        return {
-            "success": True,
-            "content": content,
-            "usage": cost,
-            "model": config.MODELS["document_model"],
-        }
 llm = LLMManager()
