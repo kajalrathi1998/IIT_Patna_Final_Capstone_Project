@@ -1,0 +1,21 @@
+CUSTOMER COMPLAINT CASE
+
+Customer Name: Ananya Sharma
+Email: ananya.sharma@yopmail.com
+Phone: +91-9876543210
+
+Complaint Category: Billing Issue
+
+Complaint Description:
+I was charged INR 2,499 for my monthly subscription even though my plan was downgraded to INR 1,499 before the billing date. I contacted customer support on 12 August and was told that the excess amount would be reviewed.
+
+Resolution Provided:
+The billing team reviewed the account and confirmed that the higher amount was charged incorrectly. A refund of INR 1,000 has been initiated to the original payment method. The customer was informed that the refund may take 5-7 business days.
+
+Escalation Information:
+No escalation is required at this time.
+
+Supporting Information:
+The customer provided a screenshot of the invoice showing the incorrect amount.
+
+Current Status: Resolved - Refund Initiated

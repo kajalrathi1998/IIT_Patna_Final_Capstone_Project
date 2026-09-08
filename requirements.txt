@@ -6,3 +6,5 @@ pandas
 python-docx
 pymupdf
 tiktoken
+streamlit
+tqdm

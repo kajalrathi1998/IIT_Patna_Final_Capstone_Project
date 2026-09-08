@@ -917,3 +917,97 @@
 2026-09-08 22:59:39,584 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
 2026-09-08 22:59:39,657 | INFO | Text completion request completed.
 2026-09-08 22:59:39,658 | INFO | Model=gpt-4.1 | Input Tokens=398 | Output Tokens=156 | Total cost=0.002555 USD | 
+2026-09-08 23:40:59,104 | INFO | Pipeline : Started extracting documents
+2026-09-08 23:47:51,003 | INFO | Pipeline : Started extracting documents
+2026-09-08 23:47:51,342 | INFO | Pipeline > process_complaint_documents : processing 2 customer complaints
+2026-09-08 23:47:56,654 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-08 23:47:56,659 | INFO | Processing document E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_001.txt
+2026-09-08 23:47:56,659 | INFO | Started document parsing request.
+2026-09-08 23:48:02,092 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:03,309 | INFO | Text completion request completed.
+2026-09-08 23:48:03,309 | INFO | Model=gpt-4.1 | Input Tokens=471 | Output Tokens=184 | Total cost=0.003018 USD | 
+2026-09-08 23:48:05,194 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-08 23:48:05,196 | INFO | Processing document E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_002.pdf
+2026-09-08 23:48:05,196 | INFO | Started document parsing request.
+2026-09-08 23:48:08,684 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:08,727 | INFO | Text completion request completed.
+2026-09-08 23:48:08,727 | INFO | Model=gpt-4.1 | Input Tokens=459 | Output Tokens=159 | Total cost=0.002737 USD | 
+2026-09-08 23:48:08,920 | INFO | Pipeline > process_complaint_documents : Saved structured output to E:\IIT_PATNA\Course_projects\Final_Project\data\output\structured_data\complaint_structured_data.csv
+2026-09-08 23:48:08,922 | INFO | Pipeline : Started generating emails
+2026-09-08 23:48:08,939 | INFO | Starting chat completion request.
+2026-09-08 23:48:10,936 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:11,095 | INFO | Text completion request completed.
+2026-09-08 23:48:11,096 | INFO | Model=gpt-4.1 | Input Tokens=377 | Output Tokens=172 | Total cost=0.002662 USD | 
+2026-09-08 23:48:11,108 | INFO | Starting chat completion request.
+2026-09-08 23:48:13,697 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:13,746 | INFO | Text completion request completed.
+2026-09-08 23:48:13,746 | INFO | Model=gpt-4.1 | Input Tokens=352 | Output Tokens=236 | Total cost=0.00324 USD | 
+2026-09-08 23:48:13,769 | INFO | Pipeline : Started sending emails
+2026-09-08 23:48:17,440 | INFO | Email sent successfully to ananya.sharma@yopmail.com
+2026-09-08 23:48:20,999 | INFO | Email sent successfully to rahul.mehta@yopmail.com
+2026-09-08 23:48:21,004 | INFO | Pipeline : Started generating summary
+2026-09-08 23:48:21,024 | INFO | Starting chat completion request.
+2026-09-08 23:48:23,061 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:23,095 | INFO | Text completion request completed.
+2026-09-08 23:48:23,096 | INFO | Model=gpt-4.1 | Input Tokens=408 | Output Tokens=159 | Total cost=0.00261 USD | 
+2026-09-08 23:48:23,099 | INFO | Starting chat completion request.
+2026-09-08 23:48:26,054 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:26,097 | INFO | Text completion request completed.
+2026-09-08 23:48:26,097 | INFO | Model=gpt-4.1 | Input Tokens=383 | Output Tokens=147 | Total cost=0.002427 USD | 
+2026-09-08 23:48:26,237 | INFO | Pipeline : Started extracting documents
+2026-09-08 23:48:26,239 | INFO | Pipeline > process_complaint_documents : processing 2 customer complaints
+2026-09-08 23:48:27,534 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-08 23:48:27,534 | INFO | Processing document E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_003.docx
+2026-09-08 23:48:27,535 | INFO | Started document parsing request.
+2026-09-08 23:48:32,438 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:32,503 | INFO | Text completion request completed.
+2026-09-08 23:48:32,503 | INFO | Model=gpt-4.1 | Input Tokens=448 | Output Tokens=148 | Total cost=0.0026 USD | 
+2026-09-08 23:48:33,646 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-08 23:48:33,647 | INFO | Processing document E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_004.pdf
+2026-09-08 23:48:33,647 | INFO | Started document parsing request.
+2026-09-08 23:48:35,917 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:35,978 | INFO | Text completion request completed.
+2026-09-08 23:48:35,978 | INFO | Model=gpt-4.1 | Input Tokens=433 | Output Tokens=134 | Total cost=0.002423 USD | 
+2026-09-08 23:48:35,987 | INFO | Pipeline > process_complaint_documents : Saved structured output to E:\IIT_PATNA\Course_projects\Final_Project\data\output\structured_data\complaint_structured_data.csv
+2026-09-08 23:48:35,990 | INFO | Pipeline : Started generating emails
+2026-09-08 23:48:36,004 | INFO | Starting chat completion request.
+2026-09-08 23:48:41,096 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:41,159 | INFO | Text completion request completed.
+2026-09-08 23:48:41,159 | INFO | Model=gpt-4.1 | Input Tokens=341 | Output Tokens=202 | Total cost=0.002873 USD | 
+2026-09-08 23:48:41,166 | INFO | Starting chat completion request.
+2026-09-08 23:48:42,970 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:43,034 | INFO | Text completion request completed.
+2026-09-08 23:48:43,034 | INFO | Model=gpt-4.1 | Input Tokens=327 | Output Tokens=161 | Total cost=0.002427 USD | 
+2026-09-08 23:48:43,053 | INFO | Pipeline : Started sending emails
+2026-09-08 23:48:46,481 | INFO | Email sent successfully to priya.nair@yopmail.com
+2026-09-08 23:48:50,348 | INFO | Email sent successfully to vikram.rao@yopmail.com
+2026-09-08 23:48:50,353 | INFO | Pipeline : Started generating summary
+2026-09-08 23:48:50,364 | INFO | Starting chat completion request.
+2026-09-08 23:48:52,882 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:52,920 | INFO | Text completion request completed.
+2026-09-08 23:48:52,920 | INFO | Model=gpt-4.1 | Input Tokens=372 | Output Tokens=147 | Total cost=0.0024 USD | 
+2026-09-08 23:48:52,923 | INFO | Starting chat completion request.
+2026-09-08 23:48:55,222 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:55,278 | INFO | Text completion request completed.
+2026-09-08 23:48:55,278 | INFO | Model=gpt-4.1 | Input Tokens=358 | Output Tokens=104 | Total cost=0.001935 USD | 
+2026-09-08 23:48:55,355 | INFO | Pipeline : Started extracting documents
+2026-09-08 23:48:55,359 | INFO | Pipeline > process_complaint_documents : processing 1 customer complaints
+2026-09-08 23:48:56,414 | INFO | HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2026-09-08 23:48:56,415 | INFO | Processing document E:\IIT_PATNA\Course_projects\Final_Project\data\input\complaint_005.txt
+2026-09-08 23:48:56,415 | INFO | Started document parsing request.
+2026-09-08 23:48:58,972 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:48:59,018 | INFO | Text completion request completed.
+2026-09-08 23:48:59,018 | INFO | Model=gpt-4.1 | Input Tokens=459 | Output Tokens=174 | Total cost=0.002888 USD | 
+2026-09-08 23:48:59,038 | INFO | Pipeline > process_complaint_documents : Saved structured output to E:\IIT_PATNA\Course_projects\Final_Project\data\output\structured_data\complaint_structured_data.csv
+2026-09-08 23:48:59,041 | INFO | Pipeline : Started generating emails
+2026-09-08 23:48:59,054 | INFO | Starting chat completion request.
+2026-09-08 23:49:01,203 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:49:01,257 | INFO | Text completion request completed.
+2026-09-08 23:49:01,258 | INFO | Model=gpt-4.1 | Input Tokens=367 | Output Tokens=175 | Total cost=0.002667 USD | 
+2026-09-08 23:49:01,265 | INFO | Pipeline : Started sending emails
+2026-09-08 23:49:04,538 | INFO | Email sent successfully to sneha.iyer@yopmail.com
+2026-09-08 23:49:04,543 | INFO | Pipeline : Started generating summary
+2026-09-08 23:49:04,584 | INFO | Starting chat completion request.
+2026-09-08 23:49:06,407 | INFO | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-09-08 23:49:06,448 | INFO | Text completion request completed.
+2026-09-08 23:49:06,451 | INFO | Model=gpt-4.1 | Input Tokens=398 | Output Tokens=169 | Total cost=0.002685 USD | 

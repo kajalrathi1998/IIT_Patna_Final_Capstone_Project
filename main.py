@@ -35,7 +35,7 @@ SUMMARY_OUTPUT_DIR = PROJECT_ROOT / config.PATHS['summary_data_dir']
 OUTPUT_DATA_DIR = PROJECT_ROOT / config.PATHS['final_output']
 PROMPTS_DIR = PROJECT_ROOT / "prompts"
 
-def main():
+def main(number_of_files=None):
 
     try:
         # read prompts
@@ -43,7 +43,7 @@ def main():
 
         # parse customer complaint document
         logger.info("Pipeline : Started extracting documents")
-        complaints_document_df = process_complaint_documents(parser_system_prompt, complaint_extraction_prompt)
+        complaints_document_df = process_complaint_documents(parser_system_prompt, complaint_extraction_prompt, number_of_files)
 
         # write email content for customer
         logger.info("Pipeline : Started generating emails")
@@ -82,9 +82,9 @@ def initialize():
 
     return parser_system_prompt, complaint_extraction_prompt, email_system_prompt, email_extraction_prompt,case_summary_prompt,summary_system_prompt
 
-def process_complaint_documents(parser_system_prompt, complaint_extraction_prompt):
+def process_complaint_documents(parser_system_prompt, complaint_extraction_prompt, number_of_files):
 
-    complaints_doc_df = utils.discover_files(INPUT_DOCUMENT_DIR)
+    complaints_doc_df = utils.discover_files(input_dir=INPUT_DOCUMENT_DIR, number_of_files=number_of_files)
     empty_complaint = {
         "customer_name" : None,
         "customer_email" : None,
