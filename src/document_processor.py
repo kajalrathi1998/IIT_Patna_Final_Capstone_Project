@@ -23,9 +23,21 @@ def process_documents(complaints_doc_df, extraction_prompt, system_prompt, respo
                 results.append(default_response)
                 complaints_doc_df.loc[index,"parse_status"] = "Failed"
 
-        except Exception as e:
-            logger.error(f"Document Processor > Process Document > Failed : {e}")
+        except FileNotFoundError as e:
+            logger.error(f"Document Processor > Process Document > File Not Found: {row['file_path']} - {e}")
             results.append(default_response)
-            complaints_doc_df.loc[index,"parse_status"] = f"Failed : {e}"
+            complaints_doc_df.loc[index, "parse_status"] = f"Failed: File Not Found - {row['file_path']}"
+        except PermissionError as e:
+            logger.error(f"Document Processor > Process Document > Permission Denied: {row['file_path']} - {e}")
+            results.append(default_response)
+            complaints_doc_df.loc[index, "parse_status"] = f"Failed: Permission Denied - {row['file_path']}"
+        except OSError as e:
+            logger.error(f"Document Processor > Process Document > I/O Error: {row['file_path']} - {e}")
+            results.append(default_response)
+            complaints_doc_df.loc[index, "parse_status"] = f"Failed: I/O Error - {row['file_path']}"
+        except Exception as e:
+            logger.error(f"Document Processor > Process Document > Failed: {e}")
+            results.append(default_response)
+            complaints_doc_df.loc[index, "parse_status"] = f"Failed: {e}"
 
     return complaints_doc_df, results

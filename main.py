@@ -6,6 +6,8 @@ import sys
 import shutil
 import warnings
 import pandas as pd
+import re
+import traceback
 
 from src.config import config
 from src import utils
@@ -62,6 +64,7 @@ def main(number_of_files=None):
 
     except Exception as e :
         print(f"Pipeline failed : {e}")
+        traceback.print_exc()
         raise
 
 def initialize():
@@ -130,13 +133,16 @@ def generate_emails_for_complaints(complaints_document_df, email_system_prompt, 
 
     for index, row in tqdm(complaints_document_df.iterrows(), total=len(complaints_document_df), desc="Generating email content for customer..."):
 
+        if row['parse_status'] != 'Completed':
+            continue
+
         customer_complaint = row['complaint_object']
         email_df.loc[index,"customer_name"] = customer_complaint['customer_name']
         email_df.loc[index,"customer_email"] = customer_complaint['customer_email']
         email_df.loc[index,"email_subject"] = None
         email_df.loc[index,"email_body"] = None
         
-        try: 
+        try:
             email_prompt = email_extraction_prompt.format(customer_complaint=customer_complaint)
 
             response = llm.chat_completion(
@@ -173,7 +179,10 @@ def send_email_to_customers(email_df):
     email_df["email_sent"] = False
 
     for index, row in tqdm(email_df.iterrows(), total=len(email_df), desc="Sending emails to customer..."):
-    
+
+        if row['email_generation'] != 'Completed':
+            continue
+        
         try:
             complaint = row['complaint_object']
 
