@@ -1,3 +1,4 @@
 Write a internal case summary for customer complaint.
 Return only the structured response.
+Don't invent additional information.
 customer case: {customer_case}

@@ -133,16 +133,23 @@ def generate_emails_for_complaints(complaints_document_df, email_system_prompt, 
 
     for index, row in tqdm(complaints_document_df.iterrows(), total=len(complaints_document_df), desc="Generating email content for customer..."):
 
-        if row['parse_status'] != 'Completed':
-            continue
-
-        customer_complaint = row['complaint_object']
-        email_df.loc[index,"customer_name"] = customer_complaint['customer_name']
-        email_df.loc[index,"customer_email"] = customer_complaint['customer_email']
-        email_df.loc[index,"email_subject"] = None
-        email_df.loc[index,"email_body"] = None
-        
         try:
+
+            # skip if parsing status is not completed
+            if row['parse_status'] != 'Completed':
+                continue
+
+            # skip if complaint is not valid
+            customer_complaint = row['complaint_object']
+            if( valid_complaint(customer_complaint) != True ):
+                complaints_document_df.loc[index,"email_generation"] = "Skipped : Invalid Complaint"
+                continue
+                
+            email_df.loc[index,"customer_name"] = customer_complaint['customer_name']
+            email_df.loc[index,"customer_email"] = customer_complaint['customer_email']
+            email_df.loc[index,"email_subject"] = None
+            email_df.loc[index,"email_body"] = None
+        
             email_prompt = email_extraction_prompt.format(customer_complaint=customer_complaint)
 
             response = llm.chat_completion(
@@ -173,6 +180,16 @@ def generate_emails_for_complaints(complaints_document_df, email_system_prompt, 
     final_df = pd.concat([complaints_document_df.reset_index(drop=True), pd.DataFrame(results)], axis=1)
     # print(final_df.to_string())
     return final_df
+
+def valid_complaint(customer_complaint):
+
+    email_pattern = r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+    if( bool(re.match(email_pattern, str(customer_complaint['customer_email']).strip())) != True ):
+        return False
+    if( customer_complaint['complaint_description'] == "" or customer_complaint['complaint_description'] == "Not Provided" ):
+        return False
+    
+    return True
 
 def send_email_to_customers(email_df):
 
@@ -218,7 +235,12 @@ def generate_customer_complaint_summary(result_df, case_summary_prompt, summary_
 
     for index, row in tqdm(result_df.iterrows(), total=len(result_df), desc="Generating summary..."):
 
+        # skip if complaint is not valid
         complaint = row['complaint_object']
+        if( valid_complaint(complaint) != True ):
+            result_df.loc[index,"summary_generation"] = "Skipped : Invalid Complaint"
+            continue
+
         case_summary_df.loc[index,"customer_name"] = complaint['customer_name']
         case_summary_df.loc[index,"customer_email"] = complaint['customer_email']
 
