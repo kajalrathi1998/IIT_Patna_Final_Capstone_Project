@@ -43,7 +43,7 @@ def discover_files(input_dir: Path, patterns: List = ["*.pdf", "*.txt","*.docx"]
                 round(file.stat().st_size / 1024, 2)
                 for file in files
             ],
-            "parsed_status": "Pending",
+            "parse_status": "Pending",
         }
     )
 

@@ -1,41 +1,15 @@
-# =====================================================
 # LLM Configuration
-# =====================================================
-
 [models]
 document_model = "gpt-4.1"
 temperature = 0.0
 max_tokens = 2048
 
-# =====================================================
-# Retry Configuration
-# =====================================================
-
-# [retry]
-# max_retries = 3
-# base_delay = 2
-# exponential_backoff = true
-
-# # =====================================================
-# # Rate Limiting
-# # =====================================================
-
-# [rate_limit]
-# requests_per_minute = 10
-# tokens_per_minute = 30000
-
-# =====================================================
 # Token Limits
-# =====================================================
-
 [token_limit]
 max_input_tokens = 120000
 max_output_tokens = 2048
 
-# =====================================================
 # Cost Tracking
-# =====================================================
-
 [cost]
 enabled = true
 
@@ -47,17 +21,10 @@ output_cost = 10.00
 
 currency = "USD"
 
-# =====================================================
 # Logging
-# =====================================================
-
 [logging]
 log_level = "INFO"
 log_file = "logs/project.log"
-
-# =====================================================
-# Paths
-# =====================================================
 
 # Paths
 [paths]
@@ -73,6 +40,4 @@ final_output = "data/output"
 enabled = true
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
-use_tls = true
-from_email = "hrm.rohit17@gmail.com"
 from_name = "Service Team"

@@ -28,10 +28,6 @@ class Config:
 
         self.MODELS = self.config["models"]
 
-        #self.RETRY = self.config["retry"]
-
-        #self.RATE_LIMIT = self.config["rate_limit"]
-
         self.TOKEN_LIMIT = self.config["token_limit"]
 
         self.COST = self.config["cost"]
@@ -39,5 +35,7 @@ class Config:
         self.LOGGING = self.config["logging"]
 
         self.PATHS = self.config["paths"]
+
+        self.EMAIL = self.config["email"]
 
 config = Config()

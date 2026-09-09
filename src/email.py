@@ -24,6 +24,13 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
     # Read credentials from environment variables
     sender_email = config.sender_email
     app_password = config.app_password
+    smtp_host = config.EMAIL['smtp_host']
+    smtp_port = config.EMAIL['smtp_port']
+    enabled = config.EMAIL['enabled']
+
+    if not enabled:
+        logger.warning("Sending E-mails not enabled.")
+        return False
 
     # Validate credentials
     if not sender_email:
@@ -57,7 +64,7 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         message.attach(MIMEText(body, "plain"))
 
         # Connect to Gmail SMTP server
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+        with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as server:
 
             # Enable TLS encryption
             server.starttls()
